@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Welcome to Task Management</h1>
+    <p>Sign in to proceed:</p>
+
+    {% load socialaccount %}
+
+    <!-- Google Login Button -->
+    <a href="{% provider_login_url 'google' %}?next={% url 'index' %}" class="btn">
+        Sign in with Google
+    </a>
+
+    <br><br>
+
+    <!-- Manual Login Form -->
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!-- <h1> Task Management: </h1>
+
+<form method="POST" action="/">
+    {% csrf_token %}
+
+    {{TaskForm.title}}
+
+    <input class="btn" type="submit" name="Create Task">
+</form>
+
+
+{% for task in tasks %} 
+
+<p> 
+    Title: {{task}} <br> -->
+    <!-- Status: {{task.completed}} -->
+    <!-- {% if task.completed == True %}
+        Task Completed 😏
+    {% else %}
+        It's still Pending 😫
+    {% endif %}
+</p>
+<a href="{% url 'update_task' task.id%}"> Update </a> <br>
+<a href="{% url 'delete_task' task.id%}"> Delete </a> -->
+    <!-- <p> {{task.title}} </p>
+    <p> isCompleted? - {{task.completed}} </p>
+    <p> {{task.created}} </p> -->
+
+
+<!-- {% endfor %} -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task Management</title>
+</head>
+<body>
+    <h1>Task Management</h1>
+
+    <form method="POST" action="/">
+        {% csrf_token %}
+        {{ TaskForm.as_p }}
+        <input class="btn" type="submit" value="Create Task">
+    </form>
+
+    {% for task in tasks %}
+        <div>
+            <p>
+                <strong>Title:</strong> {{ task.title }} <br>
+                <strong>Status:</strong>
+                {% if task.completed %}
+                    Task Completed 😏
+                {% else %}
+                    It's still Pending 😫
+                {% endif %}
+            </p>
+            <a href="{% url 'update_task' task.id %}">Update</a> | 
+            <a href="{% url 'delete_task' task.id %}">Delete</a>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task Management</title>
+</head>
+<body>
+    <h1>Task Management</h1>
+
+    <!-- Form to Create New Task -->
+    <form method="POST" action="/">
+        {% csrf_token %}
+        {{ TaskForm.as_p }}
+        <input class="btn" type="submit" value="Create Task">
+    </form>
+
+    <!-- Display All Tasks -->
+    {% for task in tasks %}
+        <div>
+            <p>
+                <strong>Title:</strong> {{ task.title }} <br>
+                <strong>Status:</strong>
+                {% if task.completed %}
+                    Task Completed 😏
+                {% else %}
+                    It's still Pending 😫
+                {% endif %}
+            </p>
+            <a href="{% url 'update_task' task.id %}">Update</a> | 
+            <a href="{% url 'delete_task' task.id %}">Delete</a>
+        </div>
+        <hr>
+    {% endfor %}
+
+    <!-- Logout Button -->
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn">Logout</button>
+    </form>
+
+</body>
+</html>
